@@ -21,13 +21,15 @@ var Messages = mongoose.model('messages');
 mongoose.Promise = global.Promise;
 
 
+// 上传文件配置地址
+var config = require('./config');
+
+
 // 加密
 var crypto = require('crypto');
-var $salt = '^ThisisEmliceChat$';           // 简单的静态加盐
+var $salt = config.$salt;           // 简单的静态加盐
 
 
-// 上传文件配置地址
-var config = require('./config/config.js');
 var AvatarPath_BASE 	= __dirname + config.AvatarPath;
 var MessageImgPath_BASE = __dirname + config.MessageImgPath;
 var permissionArr 		= config.permissionArr;
